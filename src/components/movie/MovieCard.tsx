@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Movie } from "../../interface";
 
 interface MovieCardProps {
@@ -5,7 +6,8 @@ interface MovieCardProps {
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({ item }) => {
-  const { title, release_date, vote_average, poster_path } = item;
+  const navinate = useNavigate();
+  const { id, title, release_date, vote_average, poster_path } = item;
   return (
     <div className="movie-card flex flex-col rounded-lg p-3 bg-slate-800 select-none h-full">
       <img
@@ -19,7 +21,10 @@ const MovieCard: React.FC<MovieCardProps> = ({ item }) => {
           <span>{new Date(release_date).getFullYear()}</span>
           <span>{vote_average}</span>
         </div>
-        <button className="py-3 px-6 rounded-lg capitalize bg-secondary w-full font-bold mt-auto">
+        <button
+          onClick={() => navinate(`/originales/originale/${id}`)}
+          className="py-3 px-6 rounded-lg capitalize bg-secondary w-full font-bold mt-auto"
+        >
           Now Watching
         </button>
       </div>

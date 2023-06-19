@@ -2,6 +2,7 @@ import React from "react";
 import Banner from "../components/banner/Banner";
 import Footer from "../layout/Footer";
 import OriginalesContent from "../components/movie/OriginalesContent";
+import { Outlet } from "react-router-dom";
 
 const Originales = () => {
   return (

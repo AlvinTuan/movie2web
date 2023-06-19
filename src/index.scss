@@ -11,6 +11,8 @@
   .page-container {
     max-width: 1280px;
     //dua ptu co classname này vào giữa
+    position: relative;
+    z-index: 1;
     @apply mx-auto;
   }
   .page-container-fluid {
@@ -21,7 +23,7 @@
     width: 300px;
     height: auto;
   }
-  .footer li {
+  .footer__list li {
     display: inline-block;
     margin: 0 10px 30px;
   }

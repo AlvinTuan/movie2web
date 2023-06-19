@@ -2,10 +2,10 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <section>
+    <footer>
       <div className="bg-[#090B13] pt-12 pb-4 text-xs content-center">
         <img src="/disney.png" alt="" className="mx-auto mb-8" />
-        <ul className="footer text-center p-0">
+        <ul className="footer__list text-center p-0">
           <li>Política de privacidad</li>
           <li>Acuerdo de suscripción</li>
           <li>Ayuda</li>
@@ -24,7 +24,7 @@ const Footer = () => {
           <span>© Disney. Todos los derechos reservados.</span>
         </div>
       </div>
-    </section>
+    </footer>
   );
 };
 

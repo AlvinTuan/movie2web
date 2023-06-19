@@ -6,6 +6,8 @@ import Main from "./layout/Main";
 import HomePage from "./pages/HomePage";
 import "swiper/scss";
 import Originales from "./pages/Originales";
+import MovieDetailsPage from "./pages/MovieDetailsPage";
+import Footer from "./layout/Footer";
 
 function App() {
   return (
@@ -14,6 +16,14 @@ function App() {
         <Route element={<Main></Main>}>
           <Route path="/" element={<HomePage></HomePage>}></Route>
           <Route path="originales" element={<Originales></Originales>}></Route>
+          <Route
+            path="originales/originale/:movieID"
+            element={
+              <>
+                <MovieDetailsPage></MovieDetailsPage>
+              </>
+            }
+          ></Route>
         </Route>
       </Routes>
     </>

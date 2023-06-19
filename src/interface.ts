@@ -11,3 +11,13 @@ export interface Movie {
   vote_average: number;
   poster_path: string;
 }
+export interface MovieDetails {
+  id: number;
+  backdrop_path: string;
+  genres: {
+    id: number;
+    name: string;
+  }[];
+  overview: string;
+  title: string;
+}
