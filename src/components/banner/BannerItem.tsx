@@ -1,9 +1,9 @@
 import React from "react";
-import { Movie } from "../../interface";
+import { MovieBanner } from "../../interface";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 interface Props {
-  movies: Movie[];
+  movies: MovieBanner[];
 }
 
 const BannerItem: React.FC<Props> = (props) => {
@@ -14,7 +14,7 @@ const BannerItem: React.FC<Props> = (props) => {
         {movies.length > 0 &&
           movies.map((item) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={item.id}>
                 <div className="h-[600px] w-[1440px] relative">
                   <div className="overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg"></div>
                   <img
@@ -27,12 +27,12 @@ const BannerItem: React.FC<Props> = (props) => {
                     <div className="w-[700px]">
                       <p>{item.overview}</p>
                     </div>
-                    <button className="mt-6 py-3 px-6 bg-primary text-[#000000] rounded-lg font-medium flex items-center gap-x-2">
+                    <button className="mt-6 py-3 px-6 bg-secondary text-primary font-bold rounded-lg flex items-center gap-x-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="currentColor"
                         className="w-6 h-6"
                       >

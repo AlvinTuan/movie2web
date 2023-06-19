@@ -9,7 +9,7 @@ const { Search } = Input;
 const Header = () => {
   return (
     <header>
-      <div className="grid grid-cols-3 px-5">
+      <div className="grid grid-cols-3 page-container">
         <img
           src="/disney.png"
           alt=""

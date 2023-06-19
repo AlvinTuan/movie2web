@@ -3,16 +3,16 @@ import React from "react";
 const Footer = () => {
   return (
     <section>
-      <div className="bg-[#090B13] w-screen pt-12 pb-4 text-xs content-center">
+      <div className="bg-[#090B13] pt-12 pb-4 text-xs content-center">
         <img src="/disney.png" alt="" className="mx-auto mb-8" />
-        <div className="flex flex-grow gap-x-5 justify-center mb-9">
-          <span>Política de privacidad</span>
-          <span>Acuerdo de suscripción</span>
-          <span>Ayuda</span>
-          <span>Dispositivos compatible</span>
-          <span>Acerca de Disney+</span>
-          <span>Publicidad personalizada</span>
-        </div>
+        <ul className="footer text-center p-0">
+          <li>Política de privacidad</li>
+          <li>Acuerdo de suscripción</li>
+          <li>Ayuda</li>
+          <li>Dispositivos compatible</li>
+          <li>Acerca de Disney+</li>
+          <li>Publicidad personalizada</li>
+        </ul>
         <div className="w-[456px] text-center mx-auto mb-10">
           <span>
             Disney+ es un servicio por suscripción de pago, su contenido está
