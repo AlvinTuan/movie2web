@@ -1,6 +1,7 @@
 import React from "react";
 import { MovieBanner } from "../../interface";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   movies: MovieBanner[];
@@ -8,6 +9,7 @@ interface Props {
 
 const BannerItem: React.FC<Props> = (props) => {
   const { movies } = props;
+  const navigate = useNavigate();
   return (
     <>
       <Swiper>
@@ -27,7 +29,12 @@ const BannerItem: React.FC<Props> = (props) => {
                     <div className="w-[700px]">
                       <p>{item.overview}</p>
                     </div>
-                    <button className="mt-6 py-3 px-6 bg-secondary text-primary font-bold rounded-lg flex items-center gap-x-2">
+                    <button
+                      className="mt-6 py-3 px-6 bg-secondary text-primary font-bold rounded-lg flex items-center gap-x-2"
+                      onClick={() =>
+                        navigate(`/originales/originale/${item.id}`)
+                      }
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

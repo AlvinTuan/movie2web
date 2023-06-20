@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  body {
+    @apply bg-slate-900 text-primary;
+  }
+}
+@layer components {
+  .page-container {
+    max-width: 1280px;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: 50%;
+    top: 50px;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @apply mx-auto;
+  }
+  .page-container-fluid {
+    max-width: 1440px;
+    @apply mx-auto;
+  }
+  .movie-list .swiper-slide {
+    width: 300px;
+    height: auto;
+  }
+  .footer__list li {
+    display: inline-block;
+    margin: 0 10px 30px;
+  }
+}/*# sourceMappingURL=index.css.map */

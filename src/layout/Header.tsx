@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 import SearchBar from "../components/search/SearchBar";
 
 // https://api.themoviedb.org/3/search/movie
@@ -22,7 +21,7 @@ const Header = () => {
             </li>
             <li className="inline-block mx-3">
               <NavLink
-                to="originales"
+                to="/originales"
                 className={({ isActive }) => (isActive ? "text-secondary" : "")}
               >
                 Originales

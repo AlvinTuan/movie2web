@@ -2,7 +2,7 @@ import useSWR from "swr";
 import { SetStateAction, useEffect, useState } from "react";
 import useDebounce from "../hooks/useDebounce";
 import { apiKey, fetcher } from "../../config";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Movie } from "../../interface";
 
 const SearchBar: React.FC = () => {
@@ -12,7 +12,7 @@ const SearchBar: React.FC = () => {
   const handleOnChange = (e: { target: { value: SetStateAction<string> } }) => {
     setFilter(e.target.value);
   };
-  const { data, error } = useSWR(url, fetcher);
+  const { data } = useSWR(url, fetcher);
   useEffect(() => {
     if (filterDebounce) {
       setUrl(
@@ -25,6 +25,7 @@ const SearchBar: React.FC = () => {
   const results = data?.results || [];
   console.log(results);
   const navigate = useNavigate();
+  console.log(filterDebounce);
 
   return (
     <div className="flex flex-col items-center min-w-[200px]">
@@ -45,6 +46,7 @@ const SearchBar: React.FC = () => {
         </svg>
         <input
           type="text"
+          value={filter}
           placeholder="Search movie"
           className="bg-inherit w-[200px] h-10 focus:outline-none bg-slate-50 rounded-lg p-1 text-black"
           onChange={handleOnChange}
@@ -57,7 +59,7 @@ const SearchBar: React.FC = () => {
               className="text-black cursor-pointer hover:bg-slate-200"
               onClick={() => {
                 navigate(`/originales/originale/${item.id}`);
-                setUrl("");
+                setFilter("");
               }}
             >
               <div className="flex gap-x-2 p-2 border">
@@ -84,6 +86,14 @@ const SearchBar: React.FC = () => {
               </div>
             </div>
           ))}
+          <div className="text-black underline mx-auto hover:text-secondary p-2">
+            <NavLink
+              to={`/movies/${filterDebounce}`}
+              onClick={() => setFilter("")}
+            >
+              More Movies
+            </NavLink>
+          </div>
         </div>
       )}
     </div>
