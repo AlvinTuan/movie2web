@@ -31,4 +31,13 @@
     display: inline-block;
     margin: 0 10px 30px;
   }
+  .accordion-list .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+    @apply bg-secondary font-black rounded-lg;
+  }
+  .accordion-list .css-1elwnq4-MuiPaper-root-MuiAccordion-root:first-of-type {
+    @apply bg-secondary font-black rounded-lg;
+  }
+  .accordion-list .css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type {
+    @apply bg-secondary font-black rounded-lg;
+  }
 }/*# sourceMappingURL=index.css.map */

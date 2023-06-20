@@ -1,9 +1,12 @@
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
 import { apiKey, fetcher } from "../../config";
-import { Swiper, SwiperSlide } from "swiper/react";
-import MovieCard from "./MovieCard";
-import { Movie, MovieTrailer } from "../../interface";
+import { MovieTrailer } from "../../interface";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 // https://api.themoviedb.org/3/movie/{movie_id}/videos
 
@@ -25,24 +28,30 @@ const MovieVideos = () => {
   return (
     <div className="py-10">
       <h2 className="text-2xl font-bold ml-11">Trailers</h2>
-      <div className="flex flex-col gap-y-10 ml-[96px] mt-10">
+      <div className="accordion-list flex flex-col gap-y-10 ml-[96px] mt-10">
         {results.slice(0, 3).map((item) => (
-          <div key={item.id}>
-            <h3 className="w-[864px] mb-5">
-              <span className="bg-secondary text-xl font-medium p-3 rounded-lg cursor-pointer">
-                {item.name}
-              </span>
-            </h3>
-            <iframe
-              width="864"
-              height="486"
-              src={`https://www.youtube.com/embed/${item.key}`}
-              title={item.name}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="object-fill"
-            ></iframe>
-          </div>
+          <Accordion className="w-[900px]">
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>{item.name}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                <iframe
+                  width="864"
+                  height="486"
+                  src={`https://www.youtube.com/embed/${item.key}`}
+                  title={item.name}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="object-fill"
+                ></iframe>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
         ))}
       </div>
     </div>
