@@ -4,15 +4,21 @@
 
 @layer base {
   body {
-    @apply bg-slate-900 pt-4 text-primary;
+    @apply bg-slate-900 text-primary;
   }
 }
 @layer components {
   .page-container {
     max-width: 1280px;
     //dua ptu co classname này vào giữa
-    position: relative;
+    position: absolute;
     z-index: 1;
+    width: 100%;
+    left: 50%;
+    top: 50px;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     @apply mx-auto;
   }
   .page-container-fluid {

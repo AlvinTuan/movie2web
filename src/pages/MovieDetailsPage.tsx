@@ -16,11 +16,10 @@ const MovieDetailsPage: React.FC = () => {
   );
   if (!data) return null;
   const { backdrop_path, title, overview, genres } = data;
-  console.log(data);
 
   return (
     <>
-      <div className="w-full h-[980px] absolute top-0">
+      <div className="w-full h-[980px] relative">
         <div className="absolute inset-0 bg-[#594444] bg-opacity-50"></div>
         <div
           className="w-full h-full object-cover bg-no-repeat"
@@ -47,6 +46,7 @@ const MovieDetailsPage: React.FC = () => {
           )}
         </div>
         <MovieSimilar></MovieSimilar>
+        <Footer></Footer>
       </div>
     </>
   );

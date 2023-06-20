@@ -19,9 +19,9 @@ const Banner = () => {
   }, []);
   return (
     <>
-      <section className="mt-10 page-container">
+      <div className="relative inset-x-2/4 -translate-x-2/4 top-[100px] w-[1440px]">
         <BannerItem movies={movies}></BannerItem>
-      </section>
+      </div>
     </>
   );
 };

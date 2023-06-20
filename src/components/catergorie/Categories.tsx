@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Categories = () => {
   return (
     <>
-      <div className="grid grid-cols-5 w-[1440px] mx-auto mt-14">
+      <div className="grid grid-cols-5 w-[1440px] mx-auto relative top-[180px]">
         <NavLink to={"disney"}>
           <img src="/image_1.png" alt="" className="h-[135px]" />{" "}
         </NavLink>

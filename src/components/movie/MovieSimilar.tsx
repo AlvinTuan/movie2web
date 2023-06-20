@@ -18,7 +18,6 @@ const MovieSimilar = () => {
     fetcher
   );
   if (!data) return null;
-  console.log(data);
   const { results } = data;
   if (!results || results.length <= 0) return null;
 

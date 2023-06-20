@@ -21,3 +21,10 @@ export interface MovieDetails {
   overview: string;
   title: string;
 }
+
+export interface SearchMovie {
+  id: number;
+  vote_average: number;
+  title: string;
+  poster_path: string;
+}
