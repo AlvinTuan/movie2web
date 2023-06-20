@@ -6,6 +6,7 @@ import { apiKey, fetcher } from "../config";
 import { MovieDetails } from "../interface";
 import MovieSimilar from "../components/movie/MovieSimilar";
 import Footer from "../layout/Footer";
+import MovieVideos from "../components/movie/MovieVideos";
 
 // `https://api.themoviedb.org/3/movie/${movieID}?api_key=0f2828258a4259490e4802ec8bceef93`
 const MovieDetailsPage: React.FC = () => {
@@ -45,6 +46,7 @@ const MovieDetailsPage: React.FC = () => {
             </div>
           )}
         </div>
+        <MovieVideos></MovieVideos>
         <MovieSimilar></MovieSimilar>
         <Footer></Footer>
       </div>

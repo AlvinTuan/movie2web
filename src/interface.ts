@@ -28,3 +28,9 @@ export interface SearchMovie {
   title: string;
   poster_path: string;
 }
+
+export interface MovieTrailer {
+  id: number;
+  key: string;
+  name: string;
+}

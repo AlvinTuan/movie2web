@@ -17,9 +17,11 @@ const MovieCard: React.FC<MovieCardProps> = ({ item }) => {
       />
       <div className="flex flex-col flex-1">
         <h3 className="text-xl font-bold mb-3">{title}</h3>
-        <div className="flex items-center justify-between opacity-50 mb-5">
+        <div className="flex items-center justify-between opacity-40 mb-5">
           <span>{new Date(release_date).getFullYear()}</span>
-          <span>{vote_average}</span>
+          <div>
+            <span>Rating: {parseFloat(vote_average.toFixed(1))}</span>
+          </div>
         </div>
         <button
           onClick={() => navinate(`/originales/originale/${id}`)}

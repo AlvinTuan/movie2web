@@ -24,7 +24,7 @@ const MovieMore: React.FC = () => {
   console.log(results);
   return (
     <>
-      <div className="relative top-[150px] ">
+      <div className="relative top-[150px] px-14">
         <span className="ml-[96px] font-bold text-2xl inline-block mb-7">
           Showing results for: "{filter}"
         </span>
