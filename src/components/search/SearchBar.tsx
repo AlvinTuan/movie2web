@@ -66,6 +66,7 @@ const SearchBar: React.FC = () => {
                   navigate(`/originales/originale/${item.id}`);
                   setFilter("");
                 }}
+                key={item.id}
               >
                 <div className="flex gap-x-2 p-2 border">
                   <img

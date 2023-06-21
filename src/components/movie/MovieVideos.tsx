@@ -21,16 +21,13 @@ const MovieVideos = () => {
     https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${apiKey}`,
     fetcher
   );
-  if (!data) return null;
-  const { results } = data;
-  if (!results || results.length <= 0) return null;
-  console.log(results);
+  const results = data?.results || [];
   return (
     <div className="py-10">
       <h2 className="text-2xl font-bold ml-11">Trailers</h2>
       <div className="accordion-list flex flex-col gap-y-10 ml-[96px] mt-10">
         {results.slice(0, 3).map((item) => (
-          <Accordion className="w-[900px]">
+          <Accordion className="w-[900px]" key={item.id}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"

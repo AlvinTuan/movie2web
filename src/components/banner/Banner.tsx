@@ -1,9 +1,7 @@
-import useSWR from "swr";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import BannerItem from "./BannerItem";
 import { MovieBanner } from "../../interface.js";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 const Banner = () => {
   const [movies, setMovies] = useState<MovieBanner[]>([]);

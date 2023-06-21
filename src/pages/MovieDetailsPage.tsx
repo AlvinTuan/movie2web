@@ -1,5 +1,3 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
 import { apiKey, fetcher } from "../config";
@@ -11,7 +9,7 @@ import MovieVideos from "../components/movie/MovieVideos";
 // `https://api.themoviedb.org/3/movie/${movieID}?api_key=0f2828258a4259490e4802ec8bceef93`
 const MovieDetailsPage: React.FC = () => {
   const { movieID } = useParams();
-  const { data, error } = useSWR<MovieDetails>(
+  const { data } = useSWR<MovieDetails>(
     `https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}`,
     fetcher
   );

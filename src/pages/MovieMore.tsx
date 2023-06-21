@@ -1,5 +1,4 @@
-import React, { SetStateAction, useEffect, useState } from "react";
-import useDebounce from "../components/hooks/useDebounce";
+import React, { useEffect, useState } from "react";
 import { apiKey, fetcher } from "../config";
 import useSWR from "swr";
 import { useParams } from "react-router-dom";
@@ -16,7 +15,6 @@ const MovieMore: React.FC = () => {
   const [nextPage, setNextPage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  console.log("🚀 ~ file: MovieMore.tsx:13 ~ data:", data);
   const loading = !data && !error;
   useEffect(() => {
     if (filter) {

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Movie } from "../../interface";
 import LoadingSkeleton from "../loading/LoadingSkeleton";
+import { withErrorBoundary } from "react-error-boundary";
 
 interface MovieCardProps {
   item: Movie;
@@ -11,11 +12,16 @@ const MovieCard: React.FC<MovieCardProps> = ({ item }) => {
   const { id, title, release_date, vote_average, poster_path } = item;
   return (
     <div className="movie-card flex flex-col rounded-lg p-3 bg-slate-800 select-none h-full">
-      <img
-        src={`http://image.tmdb.org/t/p/w500/${poster_path}`}
-        alt=""
-        className="w-full h-[250px] object-cover rounded-lg mb-5"
-      />
+      {poster_path === null ? (
+        <img src="/local-file-not-found.png" alt="" className="w-full h-[250px] object-cover rounded-lg mb-5"/>
+      ) : (
+        <img
+          src={`http://image.tmdb.org/t/p/w500/${poster_path}`}
+          alt=""
+          className="w-full h-[250px] object-cover rounded-lg mb-5"
+        />
+      )}
+
       <div className="flex flex-col flex-1">
         <h3 className="text-xl font-bold mb-3">{title}</h3>
         <div className="flex items-center justify-between opacity-40 mb-5">
@@ -69,4 +75,14 @@ export const MovieCardSkeleton = () => {
   );
 };
 
-export default MovieCard;
+function FallbackComponent() {
+  return (
+    <p className="bg-red-50 text-red-400">
+      Something went wrong with this component
+    </p>
+  );
+}
+
+export default withErrorBoundary(MovieCard, {
+  FallbackComponent,
+});

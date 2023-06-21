@@ -1,5 +1,3 @@
-import React from "react";
-
 import "swiper/scss";
 import MovieList from "./MovieList";
 
