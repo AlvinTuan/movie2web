@@ -12,7 +12,7 @@ interface MovieResults {
 
 const MovieSimilar = () => {
   const { movieID } = useParams();
-  const { data, error } = useSWR<MovieResults>(
+  const { data } = useSWR<MovieResults>(
     `
     https://api.themoviedb.org/3/movie/${movieID}/similar?api_key=${apiKey}`,
     fetcher

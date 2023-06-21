@@ -16,7 +16,7 @@ interface MovieVideosType {
 
 const MovieVideos = () => {
   const { movieID } = useParams();
-  const { data, error } = useSWR<MovieVideosType>(
+  const { data } = useSWR<MovieVideosType>(
     `
     https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${apiKey}`,
     fetcher
