@@ -4,15 +4,17 @@ import useDebounce from "../hooks/useDebounce";
 import { apiKey, fetcher } from "../../config";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Movie } from "../../interface";
+import LoadingSkeleton from "../loading/LoadingSkeleton";
 
 const SearchBar: React.FC = () => {
+  const navigate = useNavigate();
   const [filter, setFilter] = useState("");
   const filterDebounce = useDebounce(filter, 500);
   const [url, setUrl] = useState("");
   const handleOnChange = (e: { target: { value: SetStateAction<string> } }) => {
     setFilter(e.target.value);
   };
-  const { data } = useSWR(url, fetcher);
+  const { data, error } = useSWR(url, fetcher);
   useEffect(() => {
     if (filterDebounce) {
       setUrl(
@@ -23,9 +25,7 @@ const SearchBar: React.FC = () => {
     }
   }, [filterDebounce]);
   const results = data?.results || [];
-  console.log(results);
-  const navigate = useNavigate();
-  console.log(filterDebounce);
+  const isLoading = !data && !error;
 
   return (
     <div className="flex flex-col items-center min-w-[200px]">
@@ -52,40 +52,45 @@ const SearchBar: React.FC = () => {
           onChange={handleOnChange}
         />
       </div>
-      {results && results.length > 0 && (
+      {results.length > 0 && (
         <div className="w-[450px] absolute top-14 translate-x-[29%] bg-white flex flex-col rounded-lg max-h-[300px] overflow-y-auto">
-          {results.slice(0, 5).map((item: Movie) => (
-            <div
-              className="text-black cursor-pointer hover:bg-slate-200"
-              onClick={() => {
-                navigate(`/originales/originale/${item.id}`);
-                setFilter("");
-              }}
-            >
-              <div className="flex gap-x-2 p-2 border">
-                <img
-                  src={`http://image.tmdb.org/t/p/w500/${item.poster_path}`}
-                  alt=""
-                  className="w-[80px] h-[80px] object-cover rounded-lg"
-                />
-                <div>
-                  <h3 className="font-medium">{item.title}</h3>
-                  <div className="flex items-center gap-x-1">
-                    <span>
-                      Rating: {parseFloat(item.vote_average.toFixed(1))}
-                    </span>
-                    <img src="/star.png" alt="" />
-                  </div>
+          {isLoading &&
+            new Array(5)
+              .fill(0)
+              .map((item) => <SearchBarSkeleton></SearchBarSkeleton>)}
+          {!isLoading &&
+            results.slice(0, 5).map((item: Movie) => (
+              <div
+                className="text-black cursor-pointer hover:bg-slate-200"
+                onClick={() => {
+                  navigate(`/originales/originale/${item.id}`);
+                  setFilter("");
+                }}
+              >
+                <div className="flex gap-x-2 p-2 border">
+                  <img
+                    src={`http://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                    alt=""
+                    className="w-[80px] h-[80px] object-cover rounded-lg"
+                  />
                   <div>
-                    <span>
-                      Year of manufacture:{" "}
-                      {new Date(item.release_date).getFullYear()}
-                    </span>
+                    <h3 className="font-medium">{item.title}</h3>
+                    <div className="flex items-center gap-x-1">
+                      <span>
+                        Rating: {parseFloat(item.vote_average.toFixed(1))}
+                      </span>
+                      <img src="/star.png" alt="" />
+                    </div>
+                    <div>
+                      <span>
+                        Year of manufacture:{" "}
+                        {new Date(item.release_date).getFullYear()}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
           <div className="text-black underline mx-auto hover:text-buttonColor p-2">
             <NavLink
               to={`/movies/${filterDebounce}`}
@@ -96,6 +101,35 @@ const SearchBar: React.FC = () => {
           </div>
         </div>
       )}
+    </div>
+  );
+};
+
+const SearchBarSkeleton: React.FC = () => {
+  return (
+    <div className="text-black cursor-pointer hover:bg-slate-200">
+      <div className="flex gap-x-2 p-2 border">
+        <LoadingSkeleton
+          width="80px"
+          height="80px"
+          radius="8px"
+        ></LoadingSkeleton>
+        <div className="w-[330px]">
+          <h3 className="font-medium">
+            <LoadingSkeleton width="100%" height="25px"></LoadingSkeleton>
+          </h3>
+          <div className="flex items-center gap-x-1 my-1">
+            <span>
+              <LoadingSkeleton width="100px" height="20px"></LoadingSkeleton>
+            </span>
+          </div>
+          <div>
+            <span>
+              <LoadingSkeleton width="200px" height="20px"></LoadingSkeleton>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
