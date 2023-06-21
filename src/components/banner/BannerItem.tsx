@@ -30,7 +30,7 @@ const BannerItem: React.FC<Props> = (props) => {
                       <p>{item.overview}</p>
                     </div>
                     <button
-                      className="mt-6 py-3 px-6 bg-secondary text-primary font-bold rounded-lg flex items-center gap-x-2"
+                      className="mt-6 py-3 px-6 bg-buttonColor text-primary font-bold rounded-lg flex items-center gap-x-2"
                       onClick={() =>
                         navigate(`/originales/originale/${item.id}`)
                       }

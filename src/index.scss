@@ -34,12 +34,21 @@
     margin: 0 10px 30px;
   }
   .accordion-list .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
-    @apply bg-secondary font-black rounded-lg;
+    @apply bg-buttonColor text-white font-black rounded-lg;
   }
   .accordion-list .css-1elwnq4-MuiPaper-root-MuiAccordion-root:first-of-type {
-    @apply bg-secondary font-black rounded-lg;
+    @apply bg-buttonColor text-white font-black rounded-lg;
   }
   .accordion-list .css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type {
-    @apply bg-secondary font-black rounded-lg;
+    @apply bg-buttonColor text-white font-black rounded-lg;
+  }
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  .selected {
+    @apply text-secondary;
   }
 }

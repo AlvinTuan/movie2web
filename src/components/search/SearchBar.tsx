@@ -7,7 +7,7 @@ import { Movie } from "../../interface";
 
 const SearchBar: React.FC = () => {
   const [filter, setFilter] = useState("");
-  const filterDebounce = useDebounce(filter, 1000);
+  const filterDebounce = useDebounce(filter, 500);
   const [url, setUrl] = useState("");
   const handleOnChange = (e: { target: { value: SetStateAction<string> } }) => {
     setFilter(e.target.value);
@@ -86,7 +86,7 @@ const SearchBar: React.FC = () => {
               </div>
             </div>
           ))}
-          <div className="text-black underline mx-auto hover:text-secondary p-2">
+          <div className="text-black underline mx-auto hover:text-buttonColor p-2">
             <NavLink
               to={`/movies/${filterDebounce}`}
               onClick={() => setFilter("")}

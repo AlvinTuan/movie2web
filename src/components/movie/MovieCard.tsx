@@ -25,7 +25,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ item }) => {
         </div>
         <button
           onClick={() => navinate(`/originales/originale/${id}`)}
-          className="py-3 px-6 rounded-lg capitalize bg-secondary w-full font-bold mt-auto"
+          className="py-3 px-6 rounded-lg capitalize bg-buttonColor w-full font-bold mt-auto"
         >
           Now Watching
         </button>

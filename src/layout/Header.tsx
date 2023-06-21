@@ -7,7 +7,9 @@ const Header = () => {
     <header>
       <div className="page-container">
         <div className="flex items-center justify-start">
-          <img src="/disney.png" alt="" />
+          <NavLink to="/">
+            <img src="/disney.png" alt="" />
+          </NavLink>
         </div>
         <div className="flex items-center justify-center">
           <ul className="p-0 font-bold">
