@@ -52,6 +52,7 @@ const SearchBar: React.FC = () => {
           onChange={handleOnChange}
         />
       </div>
+
       {results.length > 0 && (
         <div className="w-[450px] absolute top-14 translate-x-[29%] bg-white flex flex-col rounded-lg max-h-[300px] overflow-y-auto">
           {isLoading &&

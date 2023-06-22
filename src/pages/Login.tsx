@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { useController, UseControllerProps, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,10 @@ type FormData = {
   username: string;
   password: string;
 };
+
+interface FieldInput extends FormData {
+  id: string;
+}
 
 const schema = yup.object({
   username: yup.string().required("Required"),
@@ -19,6 +23,7 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    control,
   } = useForm<FormData>({ resolver: yupResolver(schema), mode: "onChange" });
   const onSubmit = () => {
     return new Promise<void>((resolve) => {

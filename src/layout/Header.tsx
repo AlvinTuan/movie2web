@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import SearchBar from "../components/search/SearchBar";
-import { DownOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Dropdown, Space } from "antd";
 
@@ -33,7 +32,9 @@ const items: MenuProps["items"] = [
             d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
           />
         </svg>
-        <NavLink to={"/"}>Logout</NavLink>
+        <NavLink to={"/"} replace>
+          Logout
+        </NavLink>
       </div>
     ),
     key: "3",
@@ -46,7 +47,7 @@ const Header: React.FC = () => {
     <header>
       <div className="page-container">
         <div className="flex items-center justify-start">
-          <NavLink to="/">
+          <NavLink to="/home">
             <img src="/disney.png" alt="" />
           </NavLink>
         </div>
@@ -54,10 +55,10 @@ const Header: React.FC = () => {
           <ul className="p-0 font-bold">
             <li className="inline-block mx-3">
               <NavLink
-                to="/"
+                to="/home"
                 className={({ isActive }) => (isActive ? "text-secondary" : "")}
               >
-                Inicio
+                Home
               </NavLink>
             </li>
             <li className="inline-block mx-3">

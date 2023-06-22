@@ -11,9 +11,13 @@ const MovieCard: React.FC<MovieCardProps> = ({ item }) => {
   const navinate = useNavigate();
   const { id, title, release_date, vote_average, poster_path } = item;
   return (
-    <div className="movie-card flex flex-col rounded-lg p-3 bg-slate-800 select-none h-full">
+    <div className="movie-card flex flex-col rounded-lg p-3 bg-slate-700 select-none h-full">
       {poster_path === null ? (
-        <img src="/local-file-not-found.png" alt="" className="w-full h-[250px] object-cover rounded-lg mb-5"/>
+        <img
+          src="/local-file-not-found.png"
+          alt=""
+          className="w-full h-[250px] object-cover rounded-lg mb-5"
+        />
       ) : (
         <img
           src={`http://image.tmdb.org/t/p/w500/${poster_path}`}
