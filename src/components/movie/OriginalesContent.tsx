@@ -4,7 +4,6 @@ import MovieList from "./MovieList";
 const OriginalesContent = () => {
   return (
     <>
-      {/* <MovieList></MovieList> */}
       <section className="page-container-fluid pb-10 px-10 mt-44">
         <h2 className="capitalize mb-5 text-3xl font-bold">Now Playing</h2>
         <MovieList></MovieList>

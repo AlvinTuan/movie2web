@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import { SetStateAction, useEffect, useState } from "react";
-import useDebounce from "../hooks/useDebounce";
+import useDebounce from "../../hooks/useDebounce";
 import { apiKey, fetcher } from "../../config";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Movie } from "../../interface";
