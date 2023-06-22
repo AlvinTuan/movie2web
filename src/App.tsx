@@ -7,14 +7,16 @@ const HomePage = lazy(() => import("./pages/HomePage"));
 const MovieDetailsPage = lazy(() => import("./pages/MovieDetailsPage"));
 const Originales = lazy(() => import("./pages/Originales"));
 const MovieMore = lazy(() => import("./pages/MovieMore"));
+const Login = lazy(() => import("./pages/Login"));
 
 function App() {
   return (
     <>
       <Suspense fallback={<></>}>
         <Routes>
+          <Route path="/" element={<Login></Login>}></Route>
           <Route element={<Main></Main>}>
-            <Route path="/" element={<HomePage></HomePage>}></Route>
+            <Route path="/home" element={<HomePage></HomePage>}></Route>
             <Route
               path="/originales"
               element={<Originales></Originales>}
